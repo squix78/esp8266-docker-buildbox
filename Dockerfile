@@ -29,5 +29,5 @@ RUN su esp8266 -c "cd ~/ESP8266_SDK/esptool; sed -i 's/WINDOWS/LINUX/g' Makefile
 RUN su esp8266 -c "echo 'PATH=/opt/Espressif/ESP8266_SDK/esptool:$PATH' >> ~/.bashrc"
 RUN ln -s /opt/Espressif/ESP8266_SDK/esptool/esptool /usr/bin/esptool
 RUN su esp8266 -c "cd ~/ && git clone https://github.com/themadinventor/esptool esptool-py"
-RUN su esp8266 -c "ln -s /opt/Espressif/esptool-py/esptool.py /opt/Espressif/crosstool-NG/builds/xtensa-lx106-elf/bin/"
+RUN ln -s /opt/Espressif/esptool-py/esptool.py /opt/Espressif/crosstool-NG/builds/xtensa-lx106-elf/bin/
 RUN su esp8266 -c "cd /opt/Espressif && git clone https://github.com/esp8266/source-code-examples.git"
