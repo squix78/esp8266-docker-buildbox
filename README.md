@@ -2,6 +2,7 @@ ESP8266 Docker Buildbox
 =======================
 
 Dockerfile to create a Ubuntu container containing all the tools needed to compile a simple example for the ESP8266
+See full description here: http://blog.squix.ch/2015/01/esp8266-using-docker-to-setup-build.html
 
 Usage
 =====
