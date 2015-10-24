@@ -26,7 +26,7 @@ RUN su esp8266 -c "cd /opt/Espressif/ESP8266_SDK && tar -xvzf include.tgz"
 RUN su esp8266 -c "wget -q http://filez.zoobab.com/esp8266/esptool-0.0.2.zip -O ~/ESP8266_SDK/esptool-0.0.2.zip"
 RUN su esp8266 -c "cd ~/ESP8266_SDK; unzip esptool-0.0.2.zip"
 RUN su esp8266 -c "cd ~/ESP8266_SDK/esptool; sed -i 's/WINDOWS/LINUX/g' Makefile; make"
-RUN su esp8266 -c "echo 'PATH=/opt/Espressif/ESP8266_SDK/esptool:$PATH' >> ~/.bashrc"
+RUN su esp8266 -c "echo 'PATH=/opt/Espressif/crosstool-NG/builds/xtensa-lx106-elf/bin:/opt/Espressif/esptool-py:/opt/Espressif/ESP8266_SDK/esptool:$PATH' >> ~/.bashrc"
 RUN ln -s /opt/Espressif/ESP8266_SDK/esptool/esptool /usr/bin/esptool
 RUN su esp8266 -c "cd ~/ && git clone https://github.com/themadinventor/esptool esptool-py"
 RUN ln -s /opt/Espressif/esptool-py/esptool.py /opt/Espressif/crosstool-NG/builds/xtensa-lx106-elf/bin/
