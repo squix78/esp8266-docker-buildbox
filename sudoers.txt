@@ -1,0 +1,2 @@
+root ALL=(ALL) ALL
+esp32 ALL=(ALL) NOPASSWD: ALL
