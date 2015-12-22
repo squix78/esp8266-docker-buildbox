@@ -16,8 +16,12 @@ RUN cd /opt/Espressif/crosstool-NG && ./ct-ng build
 ENV PATH /opt/Espressif/crosstool-NG/builds/xtensa-esp108-elf/bin:$PATH
 RUN chmod a+rw /opt/Espressif/
 RUN mkdir /opt/Espressif/Workspace
+RUN chmod a+rw /opt/Espressif/Workspace
 RUN cd /opt/Espressif/Workspace && git clone https://github.com/espressif/ESP32_RTOS_SDK.git
-RUN mkdir –p /opt/Espressif/Workspace/ESP32_BIN
+RUN mkdir /opt/Espressif/Workspace/ESP32_BIN
 ENV SDK_PATH /opt/Espressif/Workspace/ESP32_RTOS_SDK
 ENV BIN_PATH /opt/Espressif/Workspace/ESP32_BIN
-RUN cd /opt/Espressif/Workspace/project_template && make clean && make
+RUN cp -R /opt/Espressif/Workspace/ESP32_RTOS_SDK/examples/project_template/ /opt/Espressif/Workspace/
+RUN chmod u+x /opt/Espressif/Workspace/project_template/gen_misc.sh
+RUN cd /opt/Espressif/Workspace/project_template && ./gen_misc.sh
+#RUN cd /opt/Espressif/Workspace/project_template && make clean && make
